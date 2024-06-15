@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --main-color:#dc143c;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(7, 7, 20);
+}
+/* gray heart */
+.gray-heart{
+    background-color: #ccc;
+    display: grid;
+    place-content: center;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    top: 0;
+    transform: rotate(45deg);
+}
+.gray-heart::before,
+.gray-heart::after{
+    content: '';
+    background-color: #ccc;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+.gray-heart::before{
+    top: -50px;
+}
+.gray-heart::after{
+   left: -50px;
+    
+}
+/* red-heart */
+.red-heart{
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    transform: rotate(45deg);
+    visibility: hidden;
+}
+.red-heart::before,
+.red-heart::after{
+    content: '';
+    background-color: var(--main-color);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+.red-heart::after{
+    top: -50px;
+}
+.red-heart::before{
+    left: -50px;
+}
+.red-heart.animation{
+    animation: pop 0.9s linear ;
+    visibility: visible;
+}
+.heart.fill-color{
+    background-color: var(--main-color);
+}
+@keyframes pop{
+    100%{
+        transform: scale(1.7) rotate(45deg);
+        opacity: 0;
+    }
+}
